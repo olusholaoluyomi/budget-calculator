@@ -1,0 +1,72 @@
+@import '../../../main-styles.scss';
+.root {
+    display: flex;
+    width: 100%;
+    position: relative;
+    &:hover {
+        .x-icon-button {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .x-icon-button {
+        position: absolute;
+        height: 34px;
+        width: 34px;
+        border-radius: 50%;
+        background-color: white;
+        background-image: url('../../../assets/delete.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        right: -17px; //it has to be half of the height and width
+        top: -17px;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        transform: scale(0);
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.5);
+        }
+    }
+}
+
+.budget-item {
+    display: flex;
+    width: 100%;
+    background-color: $light-grey;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    &:hover {
+        background-color: darken($light-grey, 5%);
+    }
+    .description {
+        display: flex;
+        flex-grow: 1;
+        font-size: 1;
+        margin-left: 5px;
+        align-items: center;
+    }
+    .amount {
+        padding: 5px;
+        border-radius: 3px;
+    }
+}
+
+.expense {
+    p {
+        color: $red;
+    }
+    .amount {
+        background-color: $light-red;
+    }
+}
+
+.income {
+    p {
+        color: $green;
+    }
+    .amount {
+        background-color: $light-green;
+    }
+}
