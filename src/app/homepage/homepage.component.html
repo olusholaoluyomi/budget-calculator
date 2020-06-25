@@ -8,10 +8,10 @@
 
 <section class="add-item-section">
     <div class="add-item-container">
-        <app-additemform style="padding: 20px"></app-additemform>
+        <app-additemform style="padding: 20px" (formSubmit)="addItem($event)"></app-additemform>
     </div>
 </section>
 
 <hr style="margin-top: 0px;">
 
-<app-budget-item-list></app-budget-item-list>
+<app-budget-item-list [budgetItems]="budgetItems" (delete)="deleteItem($event)"></app-budget-item-list>
