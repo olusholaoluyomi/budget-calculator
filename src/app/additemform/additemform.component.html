@@ -2,9 +2,20 @@
     <div class="field is is-horizontal">
         <div class="field-body">
             <div class="field is-narrow">
+                <p class="select">
+                    <select>
+                      <option> Option </option>
+                      <option> Income </option>
+                      <option> Expenses </option>
+                    </select>
+                </p>
+            </div>
+
+            <div class="field is-narrow">
                 <p class="control">
                     <input type="number" required name="amount" style="width: 100px;" class="input" placeholder="Amount" [ngModel]="item.amount">
                 </p>
+
             </div>
 
             <div class="field">

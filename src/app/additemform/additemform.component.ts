@@ -12,6 +12,8 @@ export class AdditemformComponent implements OnInit {
     @Input() item: BudgetItem;
     @Output() formSubmit: EventEmitter<BudgetItem> = new EventEmitter<BudgetItem> (); 
 
+    @Output() optionChange: EventEmitter<any> = new EventEmitter<any>();
+
     isNewItem: boolean;
 
   constructor() { }
@@ -23,6 +25,7 @@ export class AdditemformComponent implements OnInit {
         this.isNewItem = true;
         this.item = new BudgetItem('', null);
       }
+      
   }
 
   onSubmit(form: NgForm){
@@ -31,4 +34,7 @@ export class AdditemformComponent implements OnInit {
       // console.log(form);
   }
 
+  onOptionChange(){
+    this.optionChange.emit();
+  }
 }
