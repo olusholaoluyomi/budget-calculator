@@ -3,19 +3,18 @@
         <div class="field-body">
             <div class="field is-narrow">
                 <p class="select">
-                    <select>
-                      <option> Option </option>
-                      <option> Income </option>
-                      <option> Expenses </option>
+                    <select [ngModelOptions]="{standalone: true}" [(ngModel)]="optionValue" (change)="onOptionChange()">
+                   
+                      <option value="income" > Income </option>
+                      <option value="expense" > Expenses </option>
                     </select>
                 </p>
             </div>
 
             <div class="field is-narrow">
                 <p class="control">
-                    <input type="number" required name="amount" style="width: 100px;" class="input" placeholder="Amount" [ngModel]="item.amount">
+                    <input onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="number" required name="amount" style="width: 100px;" class="input" placeholder="Amount" [ngModel]="item.amount">
                 </p>
-
             </div>
 
             <div class="field">

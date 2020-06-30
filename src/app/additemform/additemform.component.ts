@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BudgetItem } from 'src/shared/models/budget.item.model';
+import { ExpressionStatement } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-additemform',
@@ -9,32 +11,41 @@ import { BudgetItem } from 'src/shared/models/budget.item.model';
 })
 export class AdditemformComponent implements OnInit {
 
-    @Input() item: BudgetItem;
-    @Output() formSubmit: EventEmitter<BudgetItem> = new EventEmitter<BudgetItem> (); 
+  @Input() item: BudgetItem;
+  @Output() formSubmit: EventEmitter<BudgetItem> = new EventEmitter<BudgetItem>();
 
-    @Output() optionChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() optionChange: EventEmitter<any> = new EventEmitter<any>();
 
-    isNewItem: boolean;
+  isNewItem: boolean;
+  isIncome: boolean = true;
 
+  optionValue: string = "income"
   constructor() { }
 
-  ngOnInit() { 
-    if(this.item) {
+  ngOnInit() {
+    if (this.item) {
       this.isNewItem = false;
-      } else{
-        this.isNewItem = true;
-        this.item = new BudgetItem('', null);
-      }
-      
+    } else {
+      this.isNewItem = true;
+      this.item = new BudgetItem('', null);
+    }
   }
 
-  onSubmit(form: NgForm){
-      this.formSubmit.emit(form.value);
-      form.reset();
-      // console.log(form);
+  onSubmit(form: NgForm) {
+    let value = form.value;
+    if (this.optionValue == "expense") {
+      value.amount = -value.amount;
+    }
+    this.formSubmit.emit(value);
+    form.reset();
   }
 
-  onOptionChange(){
-    this.optionChange.emit();
+  onOptionChange() {
+    if (this.optionValue == "income") {
+
+      this.isIncome = true;
+    } else {
+      this.isIncome = false;
+    }
   }
 }

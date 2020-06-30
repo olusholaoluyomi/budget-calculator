@@ -19,7 +19,9 @@ export class HomepageComponent implements OnInit {
     
     addItem(newItem: BudgetItem){
           this.budgetItems.push(newItem)
+          
           this.totalBudget += newItem.amount;
+          
     }
     
     deleteItem(item: BudgetItem){
