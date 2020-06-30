@@ -7,6 +7,9 @@
         <div class="amount">
             <p> {{ item.amount }} </p>
         </div>
+        <div class="date is-primary">
+            <p> {{myDate | date: 'shortDate' }} </p>
+        </div>
     </div>
     <div class="x-icon-button" (click)="onXButtonClick()">
 

@@ -48,6 +48,13 @@
         align-items: center;
     }
     .amount {
+        display: flex;
+        flex-grow: 1;
+        padding: 5px;
+        border-radius: 3px;
+    }
+    .date {
+        display: flex;
         padding: 5px;
         border-radius: 3px;
     }
@@ -60,6 +67,9 @@
     .amount {
         background-color: $light-red;
     }
+    .date {
+        background-color: white;
+    }
 }
 
 .income {
@@ -68,5 +78,8 @@
     }
     .amount {
         background-color: $light-green;
+    }
+    .date {
+        background-color: white;
     }
 }
